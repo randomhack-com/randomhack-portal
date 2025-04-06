@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: neon-hacker-haven-portal-ingress # Choose a name for the Ingress
+  annotations:
+    # --- Assuming Nginx Ingress Controller ---
+    # Use 'kubernetes.io/ingress.class: nginx' if your controller doesn't automatically pick up Ingress resources
+    # nginx.ingress.kubernetes.io/rewrite-target: / # If your service expects traffic at root, usually not needed with SPA try_files
+    nginx.ingress.kubernetes.io/ssl-redirect: "true" # Force HTTPS
+
+    # --- Assuming cert-manager for TLS ---
+    cert-manager.io/cluster-issuer: "letsencrypt-prod" # Replace with your ClusterIssuer name
+    # acme.cert-manager.io/http01-edit-in-place: "true" # May be needed depending on cert-manager setup
+spec:
+  ingressClassName: nginx # Specify if you have multiple Ingress controllers or require explicit class assignment
+  tls:
+  - hosts:
+      - your-domain.com # <-- Replace with your actual domain
+    secretName: neon-hacker-haven-portal-tls # cert-manager will create this secret with the TLS cert
+  rules:
+  - host: your-domain.com # <-- Replace with your actual domain
+    http:
+      paths:
+      - path: /
+        pathType: Prefix # Match all paths starting with /
+        backend:
+          service:
+            name: neon-hacker-haven-portal-service # Must match the Service name
+            port:
+              number: 80 # Must match the Service port

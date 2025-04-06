@@ -1,0 +1,27 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: neon-hacker-haven-portal-hpa # Choose a name for the HPA
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: neon-hacker-haven-portal-deployment # Must match the name of the Deployment
+  minReplicas: 2 # Minimum number of pods to run
+  maxReplicas: 5 # Maximum number of pods to scale up to
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        # Target 70% average CPU utilization across all pods
+        # Adjust this value based on observed performance and resource limits
+        averageUtilization: 70
+  # Optional: Add memory-based scaling as well
+  # - type: Resource
+  #   resource:
+  #     name: memory
+  #     target:
+  #       type: Utilization
+  #       averageUtilization: 75

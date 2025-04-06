@@ -1,0 +1,40 @@
+# Git files
+.git
+.gitignore
+.gitattributes
+
+# Node modules
+node_modules
+
+# Bun modules (if using Bun)
+# bun.lockb (We might need this IN the build stage, but not the final stage)
+# Keep bun.lockb for build stage, exclude node_modules regardless
+
+# Build output
+dist
+build
+
+# Local environment variables
+.env
+.env.*
+!.env.example
+
+# IDE/Editor files
+.vscode
+.idea
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Test reports
+coverage

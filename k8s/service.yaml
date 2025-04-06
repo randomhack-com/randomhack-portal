@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: neon-hacker-haven-portal-service # Choose a name for your service
+spec:
+  selector:
+    app: neon-hacker-haven-portal # Must match the 'app' label in the Deployment's template
+  ports:
+    - protocol: TCP
+      port: 80 # Port the service will listen on within the cluster
+      targetPort: 80 # Port the container (Nginx) is listening on (from Deployment/Dockerfile)
+  type: ClusterIP # Exposes the service on a cluster-internal IP. Only reachable from within the cluster.
+                 # Use NodePort or LoadBalancer if you need direct external access without Ingress.

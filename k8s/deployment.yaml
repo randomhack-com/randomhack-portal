@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: neon-hacker-haven-portal-deployment # Choose a name for your deployment
+  labels:
+    app: neon-hacker-haven-portal # Label for selecting pods
+spec:
+  replicas: 2 # Start with 2 replicas, HPA will manage this later
+  selector:
+    matchLabels:
+      app: neon-hacker-haven-portal
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1 # Allow one extra pod during updates
+      maxUnavailable: 0 # Ensure at least the desired number are running
+  template:
+    metadata:
+      labels:
+        app: neon-hacker-haven-portal
+    spec:
+      containers:
+      - name: frontend # Container name
+        # IMPORTANT: Replace with your actual GHCR image path.
+        # Your GitOps tool (ArgoCD/FluxCD) will update the tag automatically.
+        image: ghcr.io/YOUR_ORG/YOUR_REPO:latest
+        imagePullPolicy: Always # Always pull the latest image tag if specified
+        ports:
+        - containerPort: 80 # Port exposed by Nginx in the Dockerfile
+        readinessProbe:
+          httpGet:
+            path: / # Check if the root path is responding
+            port: 80
+          initialDelaySeconds: 5 # Wait 5 seconds before first probe
+          periodSeconds: 10    # Check every 10 seconds
+          failureThreshold: 3
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 20
+          failureThreshold: 3
+        resources: # Optional: Define resource requests and limits
+          requests:
+            cpu: "100m" # 0.1 CPU core
+            memory: "128Mi" # 128 Mebibytes
+          limits:
+            cpu: "500m" # 0.5 CPU core
+            memory: "256Mi" # 256 Mebibytes
