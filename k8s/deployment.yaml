@@ -24,7 +24,7 @@ spec:
       - name: frontend # Container name
         # Image path for GitHub Container Registry.
         # Assumes the workflow pushes to: ghcr.io/duncanwannamaker/neon-hacker-haven-portal
-        image: ghcr.io/duncanwannamaker/neon-hacker-haven-portal:latest
+        image: ghcr.io/randomhack-com/randomhack-portal:latest
         imagePullPolicy: Always # Always pull the latest image tag if specified
         ports:
         - containerPort: 80 # Port exposed by Nginx in the Dockerfile
