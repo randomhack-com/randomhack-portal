@@ -2,12 +2,12 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   namespace: default # Add this line
-  name: neon-hacker-haven-portal-hpa # Choose a name for the HPA
+  name: randomhack-portal-hpa # Renamed HPA
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: neon-hacker-haven-portal-deployment # Must match the name of the Deployment
+    name: randomhack-portal-deployment # Updated target Deployment name
   minReplicas: 2 # Minimum number of pods to run
   maxReplicas: 5 # Maximum number of pods to scale up to
   metrics:

@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   namespace: default # Add this line
-  name: neon-hacker-haven-portal-ingress # Choose a name for the Ingress
+  name: randomhack-portal-ingress # Renamed Ingress
   annotations:
     # --- Assuming Nginx Ingress Controller ---
     # Use 'kubernetes.io/ingress.class: nginx' if your controller doesn't automatically pick up Ingress resources
@@ -17,7 +17,7 @@ spec:
   tls:
   - hosts:
       - your-domain.com # <-- Replace with your actual domain
-    secretName: neon-hacker-haven-portal-tls # cert-manager will create this secret with the TLS cert
+    secretName: randomhack-portal-tls # Updated secret name
   rules:
   - host: your-domain.com # <-- Replace with your actual domain
     http:
@@ -26,6 +26,6 @@ spec:
         pathType: Prefix # Match all paths starting with /
         backend:
           service:
-            name: neon-hacker-haven-portal-service # Must match the Service name
+            name: randomhack-portal-service # Updated target Service name
             port:
               number: 80 # Must match the Service port

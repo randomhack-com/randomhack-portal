@@ -2,14 +2,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: default # Add this line
-  name: neon-hacker-haven-portal-deployment # Choose a name for your deployment
+  name: randomhack-portal-deployment # Renamed deployment
   labels:
-    app: neon-hacker-haven-portal # Label for selecting pods
+    app: randomhack-portal # Updated label
 spec:
   replicas: 2 # Start with 2 replicas, HPA will manage this later
   selector:
     matchLabels:
-      app: neon-hacker-haven-portal
+      app: randomhack-portal
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -18,7 +18,7 @@ spec:
   template:
     metadata:
       labels:
-        app: neon-hacker-haven-portal
+        app: randomhack-portal
     spec:
       containers:
       - name: frontend # Container name
