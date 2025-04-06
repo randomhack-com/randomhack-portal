@@ -22,7 +22,6 @@ spec:
   interval: 10m0s
   path: ./k8s
   prune: true
-  targetNamespace: default # Add this line
   sourceRef:
     kind: GitRepository
     name: flux-system
