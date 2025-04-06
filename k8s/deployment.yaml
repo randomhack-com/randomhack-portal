@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: default # Add this line
   name: neon-hacker-haven-portal-deployment # Choose a name for your deployment
   labels:
     app: neon-hacker-haven-portal # Label for selecting pods

@@ -1,6 +1,7 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
+  namespace: default # Add this line
   name: neon-hacker-haven-portal-hpa # Choose a name for the HPA
 spec:
   scaleTargetRef:
