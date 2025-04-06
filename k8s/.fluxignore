@@ -1,2 +1,2 @@
 # Ignore the cloudflared config file as it's not a K8s manifest
-    cloudflared-config.yml
+cloudflared-config.yml
