@@ -1,0 +1,13 @@
+tunnel: 11064df3-b805-4c98-832c-27eae76d4687
+# This path assumes the tunnel credentials JSON file will be mounted here inside the Kubernetes pod.
+# Path to the credentials file mounted from the secret volume.
+credentials-file: /etc/cloudflared/creds/credentials.json
+
+ingress:
+  # Route traffic for www.randomhack.com
+  - hostname: www.randomhack.com
+    # Point to the Kubernetes service name (neon-hacker-haven-portal-service)
+    # in the default namespace, on port 80.
+    service: http://neon-hacker-haven-portal-service.default:80
+  # Catch-all rule to return 404 for unmatched requests
+  - service: http_status:404
