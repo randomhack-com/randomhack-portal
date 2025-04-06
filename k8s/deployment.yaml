@@ -21,9 +21,9 @@ spec:
     spec:
       containers:
       - name: frontend # Container name
-        # IMPORTANT: Replace with your actual GHCR image path.
-        # Your GitOps tool (ArgoCD/FluxCD) will update the tag automatically.
-        image: ghcr.io/YOUR_ORG/YOUR_REPO:latest
+        # Image path for GitHub Container Registry.
+        # Assumes the workflow pushes to: ghcr.io/duncanwannamaker/neon-hacker-haven-portal
+        image: ghcr.io/duncanwannamaker/neon-hacker-haven-portal:latest
         imagePullPolicy: Always # Always pull the latest image tag if specified
         ports:
         - containerPort: 80 # Port exposed by Nginx in the Dockerfile
