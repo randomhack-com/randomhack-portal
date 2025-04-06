@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudflared # Changed name for clarity
+  namespace: default
+  labels:
+    app: cloudflared
+spec:
+  replicas: 2 # Maintain 2 replicas like the Helm chart did
+  selector:
+    matchLabels:
+      app: cloudflared
+  template:
+    metadata:
+      labels:
+        app: cloudflared
+    spec:
+      containers:
+      - name: cloudflared
+        image: cloudflare/cloudflared:latest # Use latest image or specify a version like 2025.4.0
+        imagePullPolicy: IfNotPresent
+        args:
+        - tunnel
+        # Points cloudflared to the config file mount below:
+        - --config
+        - /etc/cloudflared/config/config.yaml
+        - run
+        # We are NOT adding the --metrics argument here, so no liveness probe needed
+        volumeMounts:
+        - name: config # Mount the ConfigMap volume
+          mountPath: /etc/cloudflared/config
+          readOnly: true
+        - name: creds  # Mount the Secret volume
+          mountPath: /etc/cloudflared/creds
+          readOnly: true
+        # No livenessProbe defined here to avoid the previous issue
+      volumes:
+      - name: creds # Define the Secret volume
+        secret:
+          secretName: tunnel-credentials # Use the secret we created
+      - name: config # Define the ConfigMap volume
+        configMap:
+          name: tunnel-config # Use the configmap we created
+          items:
+          - key: config.yaml
+            path: config.yaml
