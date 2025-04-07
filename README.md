@@ -1,4 +1,4 @@
-# Neon Hacker Haven Portal
+# RandomHack Portal
 
 A web portal showcasing projects, tools, and information for the Neon Hacker Haven community.
 
