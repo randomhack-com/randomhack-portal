@@ -28,7 +28,7 @@ To run this project locally:
 1.  **Clone the repository:**
     ```bash
     git clone <YOUR_REPOSITORY_URL>
-    cd neon-hacker-haven-portal
+    cd randomhack-portal
     ```
     *(Replace `<YOUR_REPOSITORY_URL>` with the actual URL of this repository)*
 
