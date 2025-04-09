@@ -6,7 +6,7 @@ A web portal showcasing projects, tools, and information for the Neon Hacker Hav
 
 This portal includes several sections:
 
-*   **Home:** Landing page.
+*   **Home:** Landing page. 
 *   **LLM Playground:** An area to interact with Large Language Models.
 *   **3D Printer Projects:** Showcase of projects related to 3D printing.
 *   **Home Lab:** Information and status of the home lab setup.
