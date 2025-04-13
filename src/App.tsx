@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as SonnerToaster } from "@/components/ui/sonner";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/react"; // Import Vercel Analytics
 
 // Lazy load pages
 const Index = lazy(() => import("./pages/Index"));
@@ -38,6 +39,7 @@ function App() {
       
       {/* Global scanline effect */}
       <div className="scanline pointer-events-none"></div>
+      <Analytics /> {/* Add Vercel Analytics component */}
     </>
   );
 }

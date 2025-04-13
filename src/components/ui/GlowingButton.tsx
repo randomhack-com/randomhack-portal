@@ -1,5 +1,5 @@
 
-import * as React from "react";
+import React, { memo } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
@@ -40,7 +40,7 @@ export interface ButtonProps
   glowing?: boolean;
 }
 
-const GlowingButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const GlowingButton = memo(React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, glowing = false, children, ...props }, ref) => {
     return (
       <button
@@ -55,7 +55,7 @@ const GlowingButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
       </button>
     );
   }
-);
+));
 GlowingButton.displayName = "GlowingButton";
 
 export { GlowingButton, buttonVariants };

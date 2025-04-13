@@ -1,8 +1,8 @@
-
+import { memo } from "react";
 import { Github, Twitter, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
-export default function Footer() {
+const FooterComponent = () => {
   return (
     <footer className="mt-24 border-t border-cyber-border bg-cyber-black/80 backdrop-blur-md py-12">
       <div className="container mx-auto px-4">
@@ -177,4 +177,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default memo(FooterComponent);

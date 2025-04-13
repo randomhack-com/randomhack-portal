@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Terminal, Cpu, Home, FileText, Menu, X } from "lucide-react";
-import { GlowingButton } from "./ui/GlowingButton";
+import { GlowingButton } from "./ui/GlowingButton"; // Assuming this is not used, might need cleanup later
+import { ThemeToggle } from "./ThemeToggle";
 
 type NavItem = {
   title: string;
@@ -84,7 +85,7 @@ export default function NavBar() {
         </Link>
 
         {/* Desktop navigation */}
-        <nav className="hidden md:flex items-center space-x-1">
+        <nav className="hidden md:flex items-center"> {/* Removed space-x-1 here */}
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -97,6 +98,7 @@ export default function NavBar() {
                     }/30`
                   : "text-cyber-text-muted hover:text-cyber-text"
               )}
+              aria-current={location.pathname === item.href ? "page" : undefined}
             >
               <div className="flex items-center gap-1.5">
                 <item.icon
@@ -104,6 +106,7 @@ export default function NavBar() {
                     "w-4 h-4",
                     location.pathname === item.href && `text-cyber-${item.color === "default" ? "primary" : item.color}`
                   )}
+                  aria-hidden="true"
                 />
                 {item.title}
               </div>
@@ -112,6 +115,9 @@ export default function NavBar() {
               )}
             </Link>
           ))}
+          <div className="ml-4"> {/* Add margin to separate from nav links */}
+            <ThemeToggle />
+          </div>
         </nav>
 
         {/* Mobile menu button */}
@@ -146,12 +152,14 @@ export default function NavBar() {
                   ? `text-cyber-${item.color === "default" ? "primary" : item.color}`
                   : "text-cyber-text-muted"
               )}
+              aria-current={location.pathname === item.href ? "page" : undefined}
             >
               <item.icon
                 className={cn(
                   "w-6 h-6",
                   location.pathname === item.href && `text-cyber-${item.color === "default" ? "primary" : item.color}`
                 )}
+                aria-hidden="true"
               />
               {item.title}
             </Link>

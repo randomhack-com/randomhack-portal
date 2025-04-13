@@ -2,7 +2,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
-import { motion, type HTMLMotionProps } from "framer-motion";
+import { motion, type HTMLMotionProps, type Transition } from "framer-motion";
 
 const cardVariants = cva(
   "relative rounded-md overflow-hidden transition-all duration-300",
@@ -51,8 +51,8 @@ const CyberCard = React.forwardRef<HTMLDivElement, CyberCardProps>(
           className={cn(cardVariants({ variant, size, className }))}
           whileHover={{ y: -5 }}
           // Fixed the transition prop type issue
-          transition={{ type: "tween", duration: 0.3 }}
-          {...props}
+          transition={{ type: "tween", duration: 0.3 } as Transition}
+          // Removed {...props} to resolve potential type conflict with motion props
         >
           {children}
           {scanline && (
