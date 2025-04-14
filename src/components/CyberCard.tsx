@@ -10,12 +10,12 @@ const cardVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-cyber-dark/70 border border-cyber-border shadow-[0_4px_15px_rgba(0,0,0,0.2)] backdrop-filter backdrop-blur-md hover:shadow-[0_8px_25px_rgba(0,0,0,0.3)] hover:-translate-y-1",
-        glow: "bg-cyber-dark/70 border border-cyber-blue/30 shadow-[0_0_10px_rgba(1,200,238,0.2)] backdrop-filter backdrop-blur-md hover:border-cyber-blue/50 hover:shadow-[0_0_15px_rgba(1,200,238,0.4),0_0_30px_rgba(1,200,238,0.2)] hover:-translate-y-1",
+          "bg-cyber-dark/70 border border-cyber-border shadow-[0_4px_15px_rgba(0,0,0,0.2)] backdrop-filter backdrop-blur-md hover:shadow-[0_8px_25px_rgba(0,0,0,0.3)] hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-cyber-primary",
+        glow: "bg-cyber-dark/70 border border-cyber-blue/30 shadow-[0_0_10px_rgba(1,200,238,0.2)] backdrop-filter backdrop-blur-md hover:border-cyber-blue/50 hover:shadow-[0_0_15px_rgba(1,200,238,0.4),0_0_30px_rgba(1,200,238,0.2)] hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-cyber-blue",
         glowPink:
-          "bg-cyber-dark/70 border border-cyber-primary/30 shadow-[0_0_10px_rgba(255,42,109,0.2)] backdrop-filter backdrop-blur-md hover:border-cyber-primary/50 hover:shadow-[0_0_15px_rgba(255,42,109,0.4),0_0_30px_rgba(255,42,109,0.2)] hover:-translate-y-1",
+          "bg-cyber-dark/70 border border-cyber-primary/30 shadow-[0_0_10px_rgba(255,42,109,0.2)] backdrop-filter backdrop-blur-md hover:border-cyber-primary/50 hover:shadow-[0_0_15px_rgba(255,42,109,0.4),0_0_30px_rgba(255,42,109,0.2)] hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-cyber-primary",
         glowPurple:
-          "bg-cyber-dark/70 border border-cyber-purple/30 shadow-[0_0_10px_rgba(111,0,255,0.2)] backdrop-filter backdrop-blur-md hover:border-cyber-purple/50 hover:shadow-[0_0_15px_rgba(111,0,255,0.4),0_0_30px_rgba(111,0,255,0.2)] hover:-translate-y-1",
+          "bg-cyber-dark/70 border border-cyber-purple/30 shadow-[0_0_10px_rgba(111,0,255,0.2)] backdrop-filter backdrop-blur-md hover:border-cyber-purple/50 hover:shadow-[0_0_15px_rgba(111,0,255,0.4),0_0_30px_rgba(111,0,255,0.2)] hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-cyber-purple",
         outline:
           "border border-cyber-border bg-cyber-black/40 hover:border-cyber-muted/50 hover:-translate-y-1",
         panel:

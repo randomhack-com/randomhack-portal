@@ -72,6 +72,7 @@ export default function NavBar() {
           ? "bg-cyber-black/80 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.3)] py-2"
           : "bg-transparent py-4"
       )}
+      role="banner"
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group">
@@ -85,7 +86,11 @@ export default function NavBar() {
         </Link>
 
         {/* Desktop navigation */}
-        <nav className="hidden md:flex items-center"> {/* Removed space-x-1 here */}
+        <nav
+          className="hidden md:flex items-center"
+          role="navigation"
+          aria-label="Main navigation"
+        >
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -99,6 +104,7 @@ export default function NavBar() {
                   : "text-cyber-text-muted hover:text-cyber-text"
               )}
               aria-current={location.pathname === item.href ? "page" : undefined}
+              tabIndex={0}
             >
               <div className="flex items-center gap-1.5">
                 <item.icon
@@ -125,6 +131,8 @@ export default function NavBar() {
           className="md:hidden flex items-center text-gray-300 p-1"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
+          aria-controls="mobile-navigation"
+          aria-expanded={isOpen}
         >
           {isOpen ? (
             <X className="w-6 h-6 text-cyber-primary" />
@@ -140,6 +148,10 @@ export default function NavBar() {
           "fixed inset-0 z-40 bg-cyber-black/95 backdrop-blur-lg transform transition-transform duration-300 pt-20",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
+        id="mobile-navigation"
+        role="navigation"
+        aria-label="Mobile navigation"
+        aria-hidden={!isOpen}
       >
         <nav className="flex flex-col items-center justify-center h-full gap-6">
           {navItems.map((item) => (
@@ -153,6 +165,7 @@ export default function NavBar() {
                   : "text-cyber-text-muted"
               )}
               aria-current={location.pathname === item.href ? "page" : undefined}
+              tabIndex={isOpen ? 0 : -1}
             >
               <item.icon
                 className={cn(

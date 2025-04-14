@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const FooterComponent = () => {
   return (
-    <footer className="mt-24 border-t border-cyber-border bg-cyber-black/80 backdrop-blur-md py-12">
+    <footer className="mt-24 border-t border-cyber-border bg-cyber-black/80 backdrop-blur-md py-12" role="contentinfo">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="space-y-4">
@@ -59,12 +59,13 @@ const FooterComponent = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-medium mb-4 text-cyber-text">Navigation</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-medium mb-4 text-cyber-text" id="footer-navigation-heading">Navigation</h3>
+            <ul className="space-y-2" role="navigation" aria-labelledby="footer-navigation-heading">
               <li>
                 <Link
                   to="/"
                   className="text-sm text-cyber-text-muted hover:text-cyber-primary transition-colors"
+                  tabIndex={0}
                 >
                   Home
                 </Link>
@@ -73,6 +74,7 @@ const FooterComponent = () => {
                 <Link
                   to="/llm-playground"
                   className="text-sm text-cyber-text-muted hover:text-cyber-blue transition-colors"
+                  tabIndex={0}
                 >
                   LLM Playground
                 </Link>
@@ -81,6 +83,7 @@ const FooterComponent = () => {
                 <Link
                   to="/3d-printer"
                   className="text-sm text-cyber-text-muted hover:text-cyber-purple transition-colors"
+                  tabIndex={0}
                 >
                   3D Printer Projects
                 </Link>
@@ -89,6 +92,7 @@ const FooterComponent = () => {
                 <Link
                   to="/home-lab"
                   className="text-sm text-cyber-text-muted hover:text-cyber-green transition-colors"
+                  tabIndex={0}
                 >
                   Home Lab
                 </Link>
@@ -97,6 +101,7 @@ const FooterComponent = () => {
                 <Link
                   to="/cv"
                   className="text-sm text-cyber-text-muted hover:text-cyber-yellow transition-colors"
+                  tabIndex={0}
                 >
                   CV
                 </Link>

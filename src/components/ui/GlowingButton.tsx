@@ -9,11 +9,11 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-cyber-dark border border-cyber-primary text-cyber-primary hover:bg-cyber-primary hover:text-black shadow-[0_0_10px_rgba(255,42,109,0.3)] hover:shadow-[0_0_15px_rgba(255,42,109,0.5)]",
-        blue: "bg-cyber-dark border border-cyber-blue text-cyber-blue hover:bg-cyber-blue hover:text-black shadow-[0_0_10px_rgba(1,200,238,0.3)] hover:shadow-[0_0_15px_rgba(1,200,238,0.5)]",
-        purple: "bg-cyber-dark border border-cyber-purple text-cyber-purple hover:bg-cyber-purple hover:text-black shadow-[0_0_10px_rgba(111,0,255,0.3)] hover:shadow-[0_0_15px_rgba(111,0,255,0.5)]",
-        green: "bg-cyber-dark border border-cyber-green text-cyber-green hover:bg-cyber-green hover:text-black shadow-[0_0_10px_rgba(0,255,159,0.3)] hover:shadow-[0_0_15px_rgba(0,255,159,0.5)]",
-        yellow: "bg-cyber-dark border border-cyber-yellow text-cyber-yellow hover:bg-cyber-yellow hover:text-black shadow-[0_0_10px_rgba(255,230,0,0.3)] hover:shadow-[0_0_15px_rgba(255,230,0,0.5)]",
+          "bg-cyber-dark border border-cyber-primary text-cyber-primary hover:bg-cyber-primary hover:text-black shadow-[0_0_10px_rgba(255,42,109,0.3)] hover:shadow-[0_0_15px_rgba(255,42,109,0.5)] focus-visible:outline-2 focus-visible:outline-cyber-primary",
+        blue: "bg-cyber-dark border border-cyber-blue text-cyber-blue hover:bg-cyber-blue hover:text-black shadow-[0_0_10px_rgba(1,200,238,0.3)] hover:shadow-[0_0_15px_rgba(1,200,238,0.5)] focus-visible:outline-2 focus-visible:outline-cyber-blue",
+        purple: "bg-cyber-dark border border-cyber-purple text-cyber-purple hover:bg-cyber-purple hover:text-black shadow-[0_0_10px_rgba(111,0,255,0.3)] hover:shadow-[0_0_15px_rgba(111,0,255,0.5)] focus-visible:outline-2 focus-visible:outline-cyber-purple",
+        green: "bg-cyber-dark border border-cyber-green text-cyber-green hover:bg-cyber-green hover:text-black shadow-[0_0_10px_rgba(0,255,159,0.3)] hover:shadow-[0_0_15px_rgba(0,255,159,0.5)] focus-visible:outline-2 focus-visible:outline-cyber-green",
+        yellow: "bg-cyber-dark border border-cyber-yellow text-cyber-yellow hover:bg-cyber-yellow hover:text-black shadow-[0_0_10px_rgba(255,230,0,0.3)] hover:shadow-[0_0_15px_rgba(255,230,0,0.5)] focus-visible:outline-2 focus-visible:outline-cyber-yellow",
         outline:
           "border border-cyber-muted bg-cyber-black/40 text-cyber-text hover:bg-cyber-muted/10 hover:text-cyber-secondary",
         ghost: "bg-transparent text-cyber-blue hover:bg-cyber-muted/10 hover:text-cyber-blue/80",
