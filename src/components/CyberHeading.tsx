@@ -1,6 +1,6 @@
 
 import { cn } from "@/lib/utils";
-import { HTMLAttributes, forwardRef } from "react";
+import { HTMLAttributes, forwardRef, memo } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const headingVariants = cva("font-bold relative inline-block", {
@@ -90,7 +90,7 @@ export interface HeadingProps
   glitch?: boolean;
 }
 
-const CyberHeading = forwardRef<HTMLHeadingElement, HeadingProps>(
+const CyberHeadingInner = forwardRef<HTMLHeadingElement, HeadingProps>(
   ({ className, variant, size, glow, as = "h2", glitch = false, children, ...props }, ref) => {
     const Comp = as || "h2";
     const dataText = typeof children === "string" ? children : undefined;
@@ -111,6 +111,8 @@ const CyberHeading = forwardRef<HTMLHeadingElement, HeadingProps>(
   }
 );
 
-CyberHeading.displayName = "CyberHeading";
+CyberHeadingInner.displayName = "CyberHeading";
+
+const CyberHeading = memo(CyberHeadingInner);
 
 export { CyberHeading, headingVariants };

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown, Terminal, Cpu, HomeIcon, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -42,7 +43,7 @@ const navItems: NavItem[] = [
   }
 ];
 
-export default function HeroSection() {
+const HeroSectionComponent = () => {
   return (
     <div className="relative min-h-screen flex flex-col">
       {/* Scanline effect */}
@@ -75,7 +76,7 @@ export default function HeroSection() {
             </span>
           </motion.div>
           
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -86,17 +87,17 @@ export default function HeroSection() {
             <span className="text-cyber-text">Portal</span>
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-cyber-text-muted max-w-3xl mx-auto"
           >
-            A digital playground for exploring tech projects, AI experiments, 
+            A digital playground for exploring tech projects, AI experiments,
             3D printing, and homelab adventures
           </motion.p>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -112,7 +113,7 @@ export default function HeroSection() {
         </div>
 
         {/* Scroll indicator */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
@@ -125,22 +126,22 @@ export default function HeroSection() {
 
       {/* Navigation cards */}
       <div className="container mx-auto px-4 pb-24 relative z-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {navItems.map((item, index) => (
-            <Link 
-              key={item.title} 
+            <Link
+              key={item.title}
               to={item.href}
               className={`group relative overflow-hidden bg-cyber-dark/70 border border-cyber-${
                 item.color === "default" ? "primary" : item.color
               }/20 rounded-lg p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyber-${
                 item.color === "default" ? "primary" : item.color
               }/40 hover:shadow-[0_0_15px_rgba(${
-                item.color === "blue" ? "1,200,238" : item.color === "purple" ? "111,0,255" : 
+                item.color === "blue" ? "1,200,238" : item.color === "purple" ? "111,0,255" :
                 item.color === "green" ? "0,255,159" : "255,42,109"
               },0.2)]`}
             >
@@ -182,4 +183,7 @@ export default function HeroSection() {
       </div>
     </div>
   );
-}
+};
+
+const HeroSection = memo(HeroSectionComponent);
+export default HeroSection;

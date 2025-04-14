@@ -1,3 +1,4 @@
+import { memo } from "react";
 
 import { motion } from "framer-motion";
 import { CyberCard } from "./CyberCard";
@@ -15,7 +16,7 @@ type FeatureCardProps = {
   href: string;
 };
 
-function FeatureCard({ title, description, icon: Icon, color, delay, href }: FeatureCardProps) {
+const FeatureCardInner = ({ title, description, icon: Icon, color, delay, href }: FeatureCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -58,7 +59,9 @@ function FeatureCard({ title, description, icon: Icon, color, delay, href }: Fea
       </CyberCard>
     </motion.div>
   );
-}
+};
+
+const FeatureCard = memo(FeatureCardInner);
 
 export default function FeatureSection() {
   const features = [

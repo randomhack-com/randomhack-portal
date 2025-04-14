@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { memo } from "react";
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { motion } from "framer-motion";
@@ -38,7 +38,7 @@ export interface GlowingButtonProps
   glowing?: boolean;
 }
 
-const GlowingButton = React.forwardRef<HTMLButtonElement, GlowingButtonProps>(
+const GlowingButtonInner = React.forwardRef<HTMLButtonElement, GlowingButtonProps>(
   ({ className, variant = "default", size, glowing = false, children, ...props }, ref) => {
     const getGlowColor = () => {
       switch (variant) {
@@ -74,6 +74,8 @@ const GlowingButton = React.forwardRef<HTMLButtonElement, GlowingButtonProps>(
     );
   }
 );
-GlowingButton.displayName = "GlowingButton";
+GlowingButtonInner.displayName = "GlowingButton";
+
+const GlowingButton = memo(GlowingButtonInner);
 
 export { GlowingButton, buttonVariants };

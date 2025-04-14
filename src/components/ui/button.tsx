@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react"; const { memo } = React;
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 
@@ -39,7 +39,7 @@ export interface ButtonProps
   asChild?: boolean
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const ButtonInner = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
     return (
@@ -51,6 +51,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     )
   }
 )
-Button.displayName = "Button"
+ButtonInner.displayName = "Button"
+
+const Button = memo(ButtonInner);
 
 export { Button, buttonVariants }

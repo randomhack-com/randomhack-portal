@@ -122,7 +122,6 @@ A personal portfolio and project showcase built with React, TypeScript, and Tail
    - Improve color contrast ratios
 
 3. **Features**:
-   - Add dark mode toggle using `use-toast`
    - Implement analytics tracking
    - Create API integration for dynamic content
 

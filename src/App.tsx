@@ -6,6 +6,7 @@ import { Toaster as SonnerToaster } from "@/components/ui/sonner";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react"; // Import Vercel Analytics
+import { ThemeProvider } from "@/components/theme-provider"; // Import ThemeProvider
 
 // Lazy load pages
 const Index = lazy(() => import("./pages/Index"));
@@ -17,9 +18,10 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 function App() {
   return (
-    <>
+    // Wrap the entire app with ThemeProvider
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <NavBar />
-      <div className="min-h-screen bg-cyber-black">
+      <div className="min-h-screen bg-background text-foreground"> {/* Use theme variables */}
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             <Route path="/" element={<Index />} />
@@ -40,7 +42,7 @@ function App() {
       {/* Global scanline effect */}
       <div className="scanline pointer-events-none"></div>
       <Analytics /> {/* Add Vercel Analytics component */}
-    </>
+    </ThemeProvider>
   );
 }
 

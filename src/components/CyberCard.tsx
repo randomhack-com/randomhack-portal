@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { memo } from "react";
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { motion, type HTMLMotionProps, type Transition } from "framer-motion";
@@ -42,7 +42,7 @@ export interface CyberCardProps
   scanline?: boolean;
 }
 
-const CyberCard = React.forwardRef<HTMLDivElement, CyberCardProps>(
+const CyberCardInner = React.forwardRef<HTMLDivElement, CyberCardProps>(
   ({ className, variant, size, hoverEffect = false, scanline = false, children, ...props }, ref) => {
     if (hoverEffect) {
       return (
@@ -80,6 +80,8 @@ const CyberCard = React.forwardRef<HTMLDivElement, CyberCardProps>(
     );
   }
 );
-CyberCard.displayName = "CyberCard";
+CyberCardInner.displayName = "CyberCard";
+
+const CyberCard = memo(CyberCardInner);
 
 export { CyberCard, cardVariants };

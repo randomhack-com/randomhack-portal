@@ -61,10 +61,10 @@ export default {
         },
         // Cyberpunk theme colors
         cyber: {
-          "primary": "#ff2a6d",        // Neon pink
+          "primary": "#ff5c8a",        // Neon pink (Adjusted for contrast)
           "secondary": "#05d9e8",      // Cyan
           "accent": "#d100d1",         // Magenta
-          "purple": "#6f00ff",         // Neon purple
+          "purple": "#9c4dff",         // Neon purple (Adjusted for contrast)
           "blue": "#01c8ee",           // Electric blue
           "yellow": "#ffe600",         // Bright yellow
           "green": "#00ff9f",          // Neon green
@@ -74,7 +74,7 @@ export default {
           "border": "#1c2026",         // Subtle border
           "muted": "#30363d",          // Muted elements
           "text": "#f0f6fc",           // Primary text
-          "text-muted": "#7d8590",     // Secondary text
+          "text-muted": "#9eaab7",     // Secondary text (Adjusted for contrast)
         },
       },
       borderRadius: {
@@ -119,17 +119,17 @@ export default {
           "50%": { transform: "translateY(-10px)" },
         },
         "cyber-pulse": {
-          "0%, 100%": { opacity: 1 },
-          "50%": { opacity: 0.5 },
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.5" },
         },
         "scan-line": {
           "0%": { transform: "translateY(0%)" },
           "100%": { transform: "translateY(100%)" },
         },
         blink: {
-          "0%, 100%": { opacity: 1 },
-          "25%, 75%": { opacity: 0.5 },
-          "50%": { opacity: 0.2 },
+          "0%, 100%": { opacity: "1" },
+          "25%, 75%": { opacity: "0.5" },
+          "50%": { opacity: "0.2" },
         },
       },
       animation: {

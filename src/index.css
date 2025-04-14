@@ -35,6 +35,38 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+ 
+  .dark {
+    /* Dark theme variables - using HSL values based on cyber theme */
+    --background: 222 47% 11%; /* cyber.black */
+    --foreground: 210 40% 98%; /* cyber.text */
+    --card: 222 47% 14%; /* cyber.dark */
+    --card-foreground: 210 40% 98%; /* cyber.text */
+    --popover: 222 47% 11%; /* cyber.black */
+    --popover-foreground: 210 40% 98%; /* cyber.text */
+    --primary: 345 100% 68%; /* cyber.primary */
+    --primary-foreground: 222 47% 11%; /* cyber.black */
+    --secondary: 187 98% 46%; /* cyber.secondary */
+    --secondary-foreground: 222 47% 11%; /* cyber.black */
+    --muted: 215 28% 21%; /* cyber.muted */
+    --muted-foreground: 215 20% 65%; /* cyber.text-muted */
+    --accent: 300 100% 41%; /* cyber.accent */
+    --accent-foreground: 210 40% 98%; /* cyber.text */
+    --destructive: 0 72% 51%; /* A suitable red for dark mode */
+    --destructive-foreground: 210 40% 98%; /* cyber.text */
+    --border: 217 33% 17%; /* cyber.border */
+    --input: 217 33% 17%; /* cyber.border */
+    --ring: 187 98% 46%; /* cyber.secondary */
+    /* Sidebar variables might need dark-specific adjustments too if used */
+    --sidebar-background: 224 71% 4%; /* Darker sidebar */
+    --sidebar-foreground: 210 40% 98%; /* cyber.text */
+    --sidebar-primary: 345 100% 68%; /* cyber.primary */
+    --sidebar-primary-foreground: 222 47% 11%; /* cyber.black */
+    --sidebar-accent: 215 28% 21%; /* cyber.muted */
+    --sidebar-accent-foreground: 210 40% 98%; /* cyber.text */
+    --sidebar-border: 217 33% 17%; /* cyber.border */
+    --sidebar-ring: 187 98% 46%; /* cyber.secondary */
+  }
 }
  
 @layer base {
