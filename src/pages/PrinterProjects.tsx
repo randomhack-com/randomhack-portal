@@ -285,7 +285,9 @@ type ProjectCardProps = {
   delay: number;
 };
 
-function ProjectCard({ title, category, difficulty, image, delay }: ProjectCardProps) {
+import { memo } from "react";
+
+const ProjectCard = memo(function ProjectCard({ title, category, difficulty, image, delay }: ProjectCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -302,8 +304,8 @@ function ProjectCard({ title, category, difficulty, image, delay }: ProjectCardP
           <div className="relative h-48 mb-4 overflow-hidden rounded">
             <div className="absolute inset-0 bg-cyber-grid opacity-30"></div>
             <div className="absolute inset-0 bg-gradient-to-br from-cyber-purple/20 to-transparent mix-blend-overlay"></div>
-            <img 
-              src={image} 
+            <img
+              src={image}
               alt={title}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
@@ -330,7 +332,7 @@ function ProjectCard({ title, category, difficulty, image, delay }: ProjectCardP
       </CyberCard>
     </motion.div>
   );
-}
+});
 
 type ResourceCardProps = {
   icon: React.ElementType;

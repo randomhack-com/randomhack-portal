@@ -264,7 +264,9 @@ type FeatureCardProps = {
   delay: number;
 };
 
-function FeatureCard({ title, description, icon: Icon, delay }: FeatureCardProps) {
+import { memo } from "react";
+
+const FeatureCard = memo(function FeatureCard({ title, description, icon: Icon, delay }: FeatureCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -287,4 +289,4 @@ function FeatureCard({ title, description, icon: Icon, delay }: FeatureCardProps
       </CyberCard>
     </motion.div>
   );
-}
+});

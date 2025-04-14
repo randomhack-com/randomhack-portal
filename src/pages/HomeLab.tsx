@@ -479,7 +479,9 @@ function StatsCard({ icon: Icon, title, value }: { icon: React.ComponentType<any
   );
 }
 
-function FeatureCard({ icon: Icon, title, description }: { icon: React.ComponentType<any>; title: string; description: string }) {
+import { memo } from "react";
+
+const FeatureCard = memo(function FeatureCard({ icon: Icon, title, description }: { icon: React.ComponentType<any>; title: string; description: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -497,7 +499,7 @@ function FeatureCard({ icon: Icon, title, description }: { icon: React.Component
       </CyberCard>
     </motion.div>
   );
-}
+});
 
 function NetworkEquipmentCard({ title, category, description }: { title: string; category: string; description: string }) {
   return (

@@ -368,7 +368,9 @@ type ProjectCardProps = {
   delay: number;
 };
 
-function ProjectCard({ title, description, link, icon: Icon, delay }: ProjectCardProps) {
+import { memo } from "react";
+
+const ProjectCard = memo(function ProjectCard({ title, description, link, icon: Icon, delay }: ProjectCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -389,9 +391,9 @@ function ProjectCard({ title, description, link, icon: Icon, delay }: ProjectCar
           <p className="text-sm text-cyber-text-muted mb-4">{description}</p>
           
           <div className="mt-auto">
-            <a 
-              href={link} 
-              target="_blank" 
+            <a
+              href={link}
+              target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center text-sm text-cyber-yellow hover:text-cyber-yellow/80 transition-colors"
             >
@@ -404,7 +406,7 @@ function ProjectCard({ title, description, link, icon: Icon, delay }: ProjectCar
       </CyberCard>
     </motion.div>
   );
-}
+});
 
 type CertificationCardProps = {
   title: string;

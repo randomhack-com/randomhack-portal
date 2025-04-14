@@ -162,7 +162,9 @@ type ProjectCardProps = {
   href: string;
 };
 
-function ProjectCard({ title, category, image, delay, color, href }: ProjectCardProps) {
+import { memo } from "react";
+
+const ProjectCard = memo(function ProjectCard({ title, category, image, delay, color, href }: ProjectCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -181,8 +183,8 @@ function ProjectCard({ title, category, image, delay, color, href }: ProjectCard
             <div className={`absolute inset-0 bg-gradient-to-br from-cyber-${
               color === "blue" ? "blue" : color === "purple" ? "purple" : "green"
             }/20 to-transparent mix-blend-overlay`}></div>
-            <img 
-              src={image} 
+            <img
+              src={image}
               alt={title}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
@@ -216,4 +218,4 @@ function ProjectCard({ title, category, image, delay, color, href }: ProjectCard
       </CyberCard>
     </motion.div>
   );
-}
+});
