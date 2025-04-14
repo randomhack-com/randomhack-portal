@@ -1,5 +1,5 @@
 
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as SonnerToaster } from "@/components/ui/sonner";
@@ -7,6 +7,8 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react"; // Import Vercel Analytics
 import { ThemeProvider } from "@/components/theme-provider"; // Import ThemeProvider
+import { useLocation } from "react-router-dom";
+import { initAnalytics, trackPageView } from "@/lib/analytics";
 
 // Lazy load pages
 const Index = lazy(() => import("./pages/Index"));
@@ -17,6 +19,16 @@ const CV = lazy(() => import("./pages/CV"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    initAnalytics();
+  }, []);
+
+  useEffect(() => {
+    trackPageView(location.pathname);
+  }, [location.pathname]);
+
   return (
     // Wrap the entire app with ThemeProvider
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
