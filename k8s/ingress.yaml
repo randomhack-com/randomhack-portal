@@ -16,10 +16,10 @@ spec:
   ingressClassName: nginx # Specify if you have multiple Ingress controllers or require explicit class assignment
   tls:
   - hosts:
-      - www.randomhack.com
+      - your-domain.com # <-- Replace with your actual domain
     secretName: randomhack-portal-tls # Updated secret name
   rules:
-  - host: www.randomhack.com
+  - host: your-domain.com # <-- Replace with your actual domain
     http:
       paths:
       - path: /
