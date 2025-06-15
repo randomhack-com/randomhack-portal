@@ -1,5 +1,4 @@
 import { memo } from "react";
-
 import { motion } from "framer-motion";
 import { CyberCard } from "./CyberCard";
 import { CyberHeading } from "./CyberHeading";
@@ -11,12 +10,63 @@ type FeatureCardProps = {
   title: string;
   description: string;
   icon: React.ElementType;
-  color: "default" | "blue" | "purple" | "green" | "yellow";
+  color: "default" | "primary" | "secondary" | "accent" | "orange";
   delay: number;
   href: string;
 };
 
 const FeatureCardInner = ({ title, description, icon: Icon, color, delay, href }: FeatureCardProps) => {
+  const getVariant = () => {
+    switch (color) {
+      case "primary": return "primary";
+      case "secondary": return "secondary";
+      case "accent": return "accent";
+      default: return "default";
+    }
+  };
+
+  const getColorClasses = () => {
+    switch (color) {
+      case "primary":
+        return {
+          icon: "text-professional-primary",
+          bg: "bg-professional-primary/10",
+          title: "text-professional-primary",
+          button: "default"
+        };
+      case "secondary":
+        return {
+          icon: "text-professional-secondary",
+          bg: "bg-professional-secondary/10",
+          title: "text-professional-secondary",
+          button: "secondary"
+        };
+      case "accent":
+        return {
+          icon: "text-professional-accent",
+          bg: "bg-professional-accent/10",
+          title: "text-professional-accent",
+          button: "accent"
+        };
+      case "orange":
+        return {
+          icon: "text-professional-orange",
+          bg: "bg-professional-orange/10",
+          title: "text-professional-orange",
+          button: "orange"
+        };
+      default:
+        return {
+          icon: "text-muted-foreground",
+          bg: "bg-muted/50",
+          title: "text-foreground",
+          button: "default"
+        };
+    }
+  };
+
+  const colors = getColorClasses();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -25,29 +75,25 @@ const FeatureCardInner = ({ title, description, icon: Icon, color, delay, href }
       viewport={{ once: true, margin: "-100px" }}
     >
       <CyberCard
-        variant={color === "default" ? "glowPink" : color === "blue" ? "glow" : color === "purple" ? "glowPurple" : "default"}
+        variant={getVariant()}
         className="h-full"
         hoverEffect
       >
         <div className="flex flex-col h-full">
-          <div
-            className={`w-12 h-12 rounded-md flex items-center justify-center mb-4 bg-cyber-${
-              color === "default" ? "primary" : color
-            }/10`}
-          >
-            <Icon className={`w-6 h-6 text-cyber-${color === "default" ? "primary" : color}`} />
+          <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${colors.bg}`}>
+            <Icon className={`w-6 h-6 ${colors.icon}`} />
           </div>
 
-          <h3 className={`text-xl font-bold mb-2 text-cyber-${color === "default" ? "primary" : color}`}>
+          <h3 className={`text-xl font-semibold mb-2 ${colors.title}`}>
             {title}
           </h3>
 
-          <p className="text-cyber-text-muted mb-6">{description}</p>
+          <p className="text-muted-foreground mb-6">{description}</p>
 
           <div className="mt-auto">
             <Link to={href}>
               <GlowingButton
-                variant={color}
+                variant={colors.button as any}
                 className="group"
               >
                 Explore
@@ -69,7 +115,7 @@ export default function FeatureSection() {
       title: "LLM Playground",
       description: "Experiment with AI language models, build chatbots, and explore the cutting edge of natural language processing.",
       icon: Terminal,
-      color: "blue" as const,
+      color: "primary" as const,
       href: "/llm-playground",
       delay: 0.1
     },
@@ -77,7 +123,7 @@ export default function FeatureSection() {
       title: "3D Printer Projects",
       description: "Discover 3D printing designs, tutorials, and projects for your home or office space.",
       icon: Cpu,
-      color: "purple" as const,
+      color: "secondary" as const,
       href: "/3d-printer",
       delay: 0.2
     },
@@ -85,7 +131,7 @@ export default function FeatureSection() {
       title: "Home Lab",
       description: "Learn about home server setups, networking, and automation for your personal tech infrastructure.",
       icon: HomeIcon,
-      color: "green" as const,
+      color: "accent" as const,
       href: "/home-lab",
       delay: 0.3
     },
@@ -93,7 +139,7 @@ export default function FeatureSection() {
       title: "Curriculum Vitae",
       description: "View my professional background, skills, and experience in technology and development.",
       icon: FileText,
-      color: "yellow" as const,
+      color: "orange" as const,
       href: "/cv",
       delay: 0.4
     }
@@ -101,9 +147,9 @@ export default function FeatureSection() {
 
   return (
     <section className="relative py-20 overflow-hidden">
-      <div className="absolute inset-0 bg-cyber-grid opacity-30 pointer-events-none"></div>
-      <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-cyber-black to-transparent"></div>
-      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-cyber-black to-transparent"></div>
+      <div className="absolute inset-0 professional-grid opacity-30 pointer-events-none"></div>
+      <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-background to-transparent"></div>
+      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-background to-transparent"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -114,15 +160,15 @@ export default function FeatureSection() {
             transition={{ duration: 0.5 }}
             className="mb-6"
           >
-            <span className="inline-block px-4 py-1.5 bg-cyber-blue/10 text-cyber-blue text-sm font-medium rounded-full mb-4">
-              Explore the Digital Frontier
+            <span className="inline-block px-4 py-1.5 bg-professional-primary/10 text-professional-primary text-sm font-medium rounded-full mb-4 border border-professional-primary/20">
+              Explore the Technology Stack
             </span>
             <CyberHeading as="h2" size="h2" className="mb-4">
-              <span className="text-cyber-text">Discover My </span>
-              <span className="text-cyber-primary">Tech Universe</span>
+              <span className="text-foreground">Discover My </span>
+              <span className="text-professional-primary">Tech Portfolio</span>
             </CyberHeading>
-            <p className="text-cyber-text-muted text-lg">
-              Explore my digital realm with these featured sections, each showcasing different aspects of my technology journey
+            <p className="text-muted-foreground text-lg">
+              Explore my digital portfolio with these featured sections, each showcasing different aspects of my technology expertise
             </p>
           </motion.div>
         </div>

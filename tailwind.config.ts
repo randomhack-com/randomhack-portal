@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -59,22 +58,34 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Cyberpunk theme colors
-        cyber: {
-          "primary": "#ff5c8a",        // Neon pink (Adjusted for contrast)
-          "secondary": "#05d9e8",      // Cyan
-          "accent": "#d100d1",         // Magenta
-          "purple": "#9c4dff",         // Neon purple (Adjusted for contrast)
-          "blue": "#01c8ee",           // Electric blue
-          "yellow": "#ffe600",         // Bright yellow
-          "green": "#00ff9f",          // Neon green
-          "black": "#0d1117",          // Dark background
-          "darker": "#080a0e",         // Darker background
-          "dark": "#161b22",           // Dark surface
-          "border": "#1c2026",         // Subtle border
-          "muted": "#30363d",          // Muted elements
-          "text": "#f0f6fc",           // Primary text
-          "text-muted": "#9eaab7",     // Secondary text (Adjusted for contrast)
+        // Professional theme colors
+        professional: {
+          "primary": "#2563eb",          // Professional blue
+          "secondary": "#059669",        // Professional green
+          "accent": "#7c3aed",           // Professional purple
+          "orange": "#ea580c",           // Professional orange
+          "slate": "#475569",            // Professional slate
+          "indigo": "#4f46e5",           // Professional indigo
+          "emerald": "#10b981",          // Professional emerald
+          "background": "#ffffff",       // Clean white background
+          "surface": "#f8fafc",          // Light surface
+          "card": "#ffffff",             // Card background
+          "border": "#e2e8f0",           // Subtle border
+          "muted": "#f1f5f9",            // Muted background
+          "text": "#1e293b",             // Dark text
+          "text-muted": "#64748b",       // Muted text
+          "text-light": "#94a3b8",       // Light text
+        },
+        // Dark mode variants
+        "professional-dark": {
+          "background": "#0f172a",       // Dark background
+          "surface": "#1e293b",          // Dark surface
+          "card": "#334155",             // Dark card
+          "border": "#475569",           // Dark border
+          "muted": "#334155",            // Dark muted
+          "text": "#f1f5f9",             // Light text
+          "text-muted": "#cbd5e1",       // Muted light text
+          "text-light": "#94a3b8",       // Light muted text
         },
       },
       borderRadius: {
@@ -91,73 +102,47 @@ export default {
           from: { height: "var(--radix-accordion-content-matrix)" },
           to: { height: "0" },
         },
-        // Custom cyberpunk animations
-        glow: {
-          "0%, 100%": { filter: "brightness(1) drop-shadow(0 0 5px rgba(1, 200, 238, 0.8))" },
-          "50%": { filter: "brightness(1.2) drop-shadow(0 0 15px rgba(1, 200, 238, 0.9))" },
+        // Professional animations
+        "fade-in": {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
-        "glow-text": {
-          "0%, 100%": { 
-            "text-shadow": "0 0 4px rgba(1, 200, 238, 0.8), 0 0 11px rgba(1, 200, 238, 0.8)"
-          },
-          "50%": { 
-            "text-shadow": "0 0 6px rgba(1, 200, 238, 0.9), 0 0 19px rgba(1, 200, 238, 0.9)"
-          },
+        "slide-in": {
+          "0%": { opacity: "0", transform: "translateX(-10px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
         },
-        "border-glow": {
-          "0%, 100%": { 
-            "box-shadow": "0 0 5px rgba(255, 42, 109, 0.7), inset 0 0 5px rgba(255, 42, 109, 0.7)",
-            "border-color": "rgba(255, 42, 109, 0.7)"
-          },
-          "50%": { 
-            "box-shadow": "0 0 15px rgba(255, 42, 109, 1), inset 0 0 8px rgba(255, 42, 109, 1)",
-            "border-color": "rgba(255, 42, 109, 1)"
-          },
+        "scale-in": {
+          "0%": { opacity: "0", transform: "scale(0.95)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
         },
-        float: {
+        "float": {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
+          "50%": { transform: "translateY(-5px)" },
         },
-        "cyber-pulse": {
+        "pulse-subtle": {
           "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.5" },
-        },
-        "scan-line": {
-          "0%": { transform: "translateY(0%)" },
-          "100%": { transform: "translateY(100%)" },
-        },
-        blink: {
-          "0%, 100%": { opacity: "1" },
-          "25%, 75%": { opacity: "0.5" },
-          "50%": { opacity: "0.2" },
+          "50%": { opacity: "0.8" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "glow": "glow 2s ease-in-out infinite",
-        "glow-text": "glow-text 2s ease-in-out infinite",
-        "border-glow": "border-glow 2s ease-in-out infinite",
+        "fade-in": "fade-in 0.5s ease-out",
+        "slide-in": "slide-in 0.5s ease-out",
+        "scale-in": "scale-in 0.3s ease-out",
         "float": "float 6s ease-in-out infinite",
-        "cyber-pulse": "cyber-pulse 2s ease-in-out infinite",
-        "scan-line": "scan-line 4s linear infinite",
-        "blink": "blink 4s infinite",
+        "pulse-subtle": "pulse-subtle 2s ease-in-out infinite",
       },
       backgroundImage: {
-        "cyber-gradient": "linear-gradient(45deg, #0d1117 0%, #161b22 100%)",
-        "cyber-glow": "linear-gradient(45deg, rgba(1, 200, 238, 0.2) 0%, rgba(255, 42, 109, 0.1) 100%)",
-        "cyber-grid": "linear-gradient(rgba(16, 21, 30, 0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 21, 30, 0.8) 1px, transparent 1px)",
-        "neon-glow": "conic-gradient(from 180deg at 50% 50%, #ff2a6d 0deg, #05d6e8 120deg, #6157ff 240deg, #ff2a6d 360deg)",
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "professional-gradient": "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
+        "professional-dark-gradient": "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
       },
       boxShadow: {
-        "neon-glow": "0 0 5px theme('colors.cyber.blue'), 0 0 20px theme('colors.cyber.blue')",
-        "neon-pink": "0 0 5px theme('colors.cyber.primary'), 0 0 20px theme('colors.cyber.primary')",
-        "neon-purple": "0 0 5px theme('colors.cyber.purple'), 0 0 20px theme('colors.cyber.purple')",
-        "cyber-card": "0 0 10px rgba(1, 200, 238, 0.3), 0 0 20px rgba(1, 200, 238, 0.2), inset 0 0 15px rgba(1, 200, 238, 0.1)",
-      },
-      dropShadow: {
-        "neon-blue": "0 0 5px rgba(1, 200, 238, 0.7)",
-        "neon-pink": "0 0 5px rgba(255, 42, 109, 0.7)",
+        "professional": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+        "professional-lg": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+        "professional-xl": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
       },
     },
   },
